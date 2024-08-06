@@ -12,23 +12,19 @@ class BasePage:
     def find_element(self, by, value):
         for attempt in range(self.retries):
             try:
-                return WebDriverWait(self.driver, self.timeout).until(
-                    EC.presence_of_element_located((by, value))
-                )
-            except Exception as e:
+                return WebDriverWait(self.driver, self.timeout).until(EC.presence_of_element_located((by, value)))
+            except Exception as err:
                 if attempt < self.retries - 1:
                     time.sleep(self.retry_delay)
                 else:
-                    raise e
+                    raise err
 
     def find_elements(self, by, value):
         for attempt in range(self.retries):
             try:
-                return WebDriverWait(self.driver, self.timeout).until(
-                    EC.presence_of_all_elements_located((by, value))
-                )
-            except Exception as e:
+                return WebDriverWait(self.driver, self.timeout).until(EC.presence_of_all_elements_located((by, value)))
+            except Exception as err:
                 if attempt < self.retries - 1:
                     time.sleep(self.retry_delay)
                 else:
-                    raise e
+                    raise err
