@@ -5,4 +5,3 @@ WORKDIR /app
 # ?asdkashdasd
 
 
-# nyobamjbkjbkb
